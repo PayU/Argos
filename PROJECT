@@ -1,0 +1,16 @@
+domain: slo.payu.com
+layout:
+- go.kubebuilder.io/v3
+projectName: argos
+repo: slo.payu.com/argos
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: slo.payu.com
+  group: argos
+  kind: Slo
+  path: slo.payu.com/argos/api/v1
+  version: v1
+version: "3"
