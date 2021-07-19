@@ -3,5 +3,15 @@ kind: Slo
 metadata:
   name: slo-sample
 spec:
-  # Add fields here
-  foo: bar
+  - name: example-latency
+    description: test
+    type: latency
+    window: 5m
+    slo: 95
+    threshold: 100
+  - name: example-availability
+    description: test
+    type: latency
+    window: 1h
+    slo: 97
+    threshold: 95

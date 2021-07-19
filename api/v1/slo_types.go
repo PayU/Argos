@@ -29,13 +29,21 @@ type SloSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Slo. Edit slo_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Name        string            `json:"name"`
+	Description string            `json:"description,omitempty"`
+	Type        string            `json:"type"`
+	Window      string            `json:"window"`
+	Slo         int               `json:"slo"`
+	Threshold   int               `json:"threshold"`
+	Annotations map[string]string `json:"annotations,omitempty"`
+	Labels      map[string]string `json:"labels,omitempty"`
 }
 
 // SloStatus defines the observed state of Slo
 type SloStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	SloStatus string `json:"SloStatus"`
 }
 
 //+kubebuilder:object:root=true
@@ -46,7 +54,7 @@ type Slo struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   SloSpec   `json:"spec,omitempty"`
+	Spec   []SloSpec `json:"spec,omitempty"`
 	Status SloStatus `json:"status,omitempty"`
 }
 
