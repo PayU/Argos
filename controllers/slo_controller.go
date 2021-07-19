@@ -18,7 +18,7 @@ package controllers
 
 import (
 	"context"
-	"fmt"
+	"encoding/json"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -48,17 +48,22 @@ type SloReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.8.3/pkg/reconcile
 func (r *SloReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	fmt.Println("inside reconsile")
 	var slo argosv1.Slo
 	var err error
 	var log = log.FromContext(ctx)
 
 	if err = r.Get(context.Background(), req.NamespacedName, &slo); err != nil {
-		log.Info("have a problem")
+		log.Error(err, "have a problem")
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 
-	fmt.Println(&slo)
+	sloJSON, err := json.Marshal(slo)
+
+	if err != nil {
+		log.Error(err, "cant read slo struct")
+	}
+
+	log.Info(string(sloJSON))
 
 	return ctrl.Result{}, nil
 }
