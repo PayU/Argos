@@ -26,6 +26,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	argosv1 "slo.payu.com/argos/api/v1"
+	renderer "slo.payu.com/argos/renderer"
 )
 
 // SloReconciler reconciles a Slo object
@@ -53,17 +54,18 @@ func (r *SloReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 	var log = log.FromContext(ctx)
 
 	if err = r.Get(context.Background(), req.NamespacedName, &slo); err != nil {
-		log.Error(err, "have a problem")
+		log.Error(err, "SLO Controller faced a problem when fetching desired SLO")
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 
 	sloJSON, err := json.Marshal(slo)
 
 	if err != nil {
-		log.Error(err, "cant read slo struct")
+		log.Error(err, "SLO controller faced problem marshaling SLO struct")
 	}
 
 	log.Info(string(sloJSON))
+	renderer.RenderTemplate()
 
 	return ctrl.Result{}, nil
 }

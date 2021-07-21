@@ -3,6 +3,7 @@ module slo.payu.com/argos
 go 1.16
 
 require (
+	github.com/google/go-jsonnet v0.17.0
 	github.com/onsi/ginkgo v1.14.1
 	github.com/onsi/gomega v1.10.2
 	k8s.io/apimachinery v0.20.2
