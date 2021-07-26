@@ -16,7 +16,7 @@ limitations under the License.
 
 // Package v1 contains API Schema definitions for the argos v1 API group
 //+kubebuilder:object:generate=true
-//+groupName=argos.slo.payu.com
+//+groupName=slo.payu.com
 package v1
 
 import (

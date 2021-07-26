@@ -5,7 +5,7 @@ metadata:
   name: slo-editor-role
 rules:
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes/status
   verbs:

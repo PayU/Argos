@@ -5,7 +5,7 @@ metadata:
   name: slo-viewer-role
 rules:
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes/status
   verbs:

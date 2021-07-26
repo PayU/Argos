@@ -7,7 +7,7 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes
   verbs:
@@ -19,13 +19,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes/finalizers
   verbs:
   - update
 - apiGroups:
-  - argos.slo.payu.com
+  - slo.payu.com
   resources:
   - sloes/status
   verbs:

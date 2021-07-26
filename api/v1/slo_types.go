@@ -39,6 +39,7 @@ type SloSpec struct {
 	Labels      map[string]string `json:"labels,omitempty"`
 }
 
+// SloSpecList contains a list of SloSpecs
 type SloSpecList struct {
 	Specs []SloSpec `json:"specs"`
 }
@@ -58,7 +59,7 @@ type Slo struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   SloSpecList `json:"slospeclist,omitempty"`
+	Spec   SloSpecList `json:"spec,omitempty"`
 	Status SloStatus   `json:"status,omitempty"`
 }
 

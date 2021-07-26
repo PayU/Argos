@@ -33,7 +33,8 @@ spec:
             type: string
           metadata:
             type: object
-          slospeclist:
+          spec:
+            description: SloSpecList contains a list of SloSpecs
             properties:
               specs:
                 items:
