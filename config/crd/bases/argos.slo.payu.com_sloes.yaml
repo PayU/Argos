@@ -33,40 +33,45 @@ spec:
             type: string
           metadata:
             type: object
-          spec:
-            items:
-              description: SloSpec defines the desired state of Slo
-              properties:
-                annotations:
-                  additionalProperties:
-                    type: string
+          slospeclist:
+            properties:
+              specs:
+                items:
+                  description: SloSpec defines the desired state of Slo
+                  properties:
+                    annotations:
+                      additionalProperties:
+                        type: string
+                      type: object
+                    description:
+                      type: string
+                    labels:
+                      additionalProperties:
+                        type: string
+                      type: object
+                    name:
+                      description: Foo is an example field of Slo. Edit slo_types.go
+                        to remove/update
+                      type: string
+                    slo:
+                      type: integer
+                    threshold:
+                      type: integer
+                    type:
+                      type: string
+                    window:
+                      type: string
+                  required:
+                  - name
+                  - slo
+                  - threshold
+                  - type
+                  - window
                   type: object
-                description:
-                  type: string
-                labels:
-                  additionalProperties:
-                    type: string
-                  type: object
-                name:
-                  description: Foo is an example field of Slo. Edit slo_types.go to
-                    remove/update
-                  type: string
-                slo:
-                  type: integer
-                threshold:
-                  type: integer
-                type:
-                  type: string
-                window:
-                  type: string
-              required:
-              - name
-              - slo
-              - threshold
-              - type
-              - window
-              type: object
-            type: array
+                type: array
+            required:
+            - specs
+            type: object
           status:
             description: SloStatus defines the observed state of Slo
             properties:

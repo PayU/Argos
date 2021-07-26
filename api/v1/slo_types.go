@@ -39,6 +39,10 @@ type SloSpec struct {
 	Labels      map[string]string `json:"labels,omitempty"`
 }
 
+type SloSpecList struct {
+	Specs []SloSpec `json:"specs"`
+}
+
 // SloStatus defines the observed state of Slo
 type SloStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
@@ -54,8 +58,8 @@ type Slo struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   []SloSpec `json:"spec,omitempty"`
-	Status SloStatus `json:"status,omitempty"`
+	Spec   SloSpecList `json:"slospeclist,omitempty"`
+	Status SloStatus   `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
