@@ -26,7 +26,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	argosv1 "slo.payu.com/argos/api/v1"
-	renderer "slo.payu.com/argos/renderer"
 )
 
 // SloReconciler reconciles a Slo object
@@ -65,7 +64,7 @@ func (r *SloReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 	}
 
 	log.Info(string(sloJSON))
-	renderer.RenderTemplate()
+	RenderTemplate()
 
 	return ctrl.Result{}, nil
 }
