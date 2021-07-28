@@ -36,7 +36,7 @@ spec:
           spec:
             description: SloSpecList contains a list of SloSpecs
             properties:
-              specs:
+              slos:
                 items:
                   description: SloSpec defines the desired state of Slo
                   properties:
@@ -71,7 +71,7 @@ spec:
                   type: object
                 type: array
             required:
-            - specs
+            - slos
             type: object
           status:
             description: SloStatus defines the observed state of Slo

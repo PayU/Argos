@@ -41,7 +41,7 @@ type SloSpec struct {
 
 // SloSpecList contains a list of SloSpecs
 type SloSpecList struct {
-	Specs []SloSpec `json:"specs"`
+	Slos []SloSpec `json:"slos"`
 }
 
 // SloStatus defines the observed state of Slo
