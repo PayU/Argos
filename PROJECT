@@ -1,0 +1,7 @@
+domain: payu.com
+repo: github.com/PayU/Argos
+resources:
+- group: argos
+  kind: Slo
+  version: v1
+version: "2"
